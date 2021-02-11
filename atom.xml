@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-02-06T13:20:37.211Z</updated>
+  <updated>2021-02-11T02:32:51.910Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,61 +17,139 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>github</title>
+    <link href="http://example.com/2021/02/11/github/"/>
+    <id>http://example.com/2021/02/11/github/</id>
+    <published>2021-02-11T02:32:18.250Z</published>
+    <updated>2021-02-11T02:32:51.910Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>批处理</title>
+    <link href="http://example.com/2021/02/09/%E6%89%B9%E5%A4%84%E7%90%86/"/>
+    <id>http://example.com/2021/02/09/%E6%89%B9%E5%A4%84%E7%90%86/</id>
+    <published>2021-02-08T23:31:41.216Z</published>
+    <updated>2021-02-11T02:30:34.481Z</updated>
+    
+    <content type="html"><![CDATA[<p>echo off 表示在此语句后所有运行的命令都不显示命令行本身<br>@与echo off相象，但它是加在每个命令行的最前面，表示运行时不显示这一行的命令行（只能影响当前行）。 </p><hr><p><a href="https://baike.baidu.com/item/cd/3516393">cd</a> 显示<a href="https://baike.baidu.com/item/%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95">当前目录</a>名或改变当前目录。</p><p><a href="https://baike.baidu.com/item/md/2258980">md</a> 创建目录。</p><p><a href="https://baike.baidu.com/item/rd/1112812">rd</a> 删除一个目录。</p><p>dir 显示目录中的文件和子目录列表。</p><p>tree 以图形显示驱动器或路径的文件夹结构。</p><p>path 为<a href="https://baike.baidu.com/item/%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6">可执行文件</a>显示或设置一个搜索路径。</p><p>copy 复制文件和目录树。</p><hr><p>在批处理中回显信息有两个命令，echo和set /p=&lt;nul，它们的共同点在于都是对程序执行信息的屏幕输出，区别在于echo是换行输出，而set /p=&lt;nul是不换行追回输出</p><hr><p>一、if 是条件语句，用来判断是否符合规定的条件，从而决定执行不同的命令。 有三种格式:</p><p>1、if [not] “参数” == “字符串” 待执行的命令</p><p>参数如果等于(not表示不等，下同)指定的字符串，则条件成立，运行命令，否则运行下一句。</p><p>例：if “%1”==”a” format a:</p><p>2、if [not] exist [路径]文件名 待执行的命令<br>如果有指定的文件，则条件成立，运行命令，否则运行下一句。</p><p>如: if exist c:\config.sys type c:\config.sys<br>表示如果存在c:\config.sys文件，则显示它的内容。</p><p>3、if errorlevel &lt;数字&gt; 待执行的命令</p><hr><p>二、goto 批处理文件运行到这里将跳到goto所指定的标号(标号即label，标号用:后跟标准字符串来定义)处，goto语句一般与if配合使用，根据不同的条件来执行不同的命令组。</p><p>如:</p><p>goto end</p><p>:end<br>echo this is the end</p><p>标号用“:字符串”来定义，标号所在行不被执行。</p><hr><p>二、goto 批处理文件运行到这里将跳到goto所指定的标号(标号即label，标号用:后跟标准字符串来定义)处，goto语句一般与if配合使用，根据不同的条件来执行不同的命令组。</p><p>如:</p><p>goto end</p><p>:end<br>echo this is the end</p><p>标号用“:字符串”来定义，标号所在行不被执行。</p><p>三、choice 使用此命令可以让用户输入一个字符（用于选择），从而根据用户的选择返回不同的errorlevel，然后于if errorlevel配合，根据用户的选择运行不同的命令。</p><p>注意：choice命令为DOS或者Windows系统提供的外部命令，不同版本的choice命令语法会稍有不同，请用choice /?查看用法。</p><p>choice的命令语法（该语法为Windows 2003中choice命令的语法，其它版本的choice的命令语法与此大同小异）：</p><p>CHOICE [/C choices] [/N] [/CS] [/T timeout /D choice] [/M text]</p><p>描述:<br>  该工具允许用户从选择列表选择一个项目并返回所选项目的索引。</p><p>参数列表:<br>  /C   choices    指定要创建的选项列表。默认列表是 “YN”。</p><p>  /N          在提示符中隐藏选项列表。提示前面的消息得到显示，<br>            选项依旧处于启用状态。</p><p>  /CS         允许选择分大小写的选项。在默认情况下，这个工具<br>            是不分大小写的。</p><p>  /T   timeout    做出默认选择之前，暂停的秒数。可接受的值是从 0<br>            到 9999。如果指定了 0，就不会有暂停，默认选项<br>            会得到选择。</p><p>  /D   choice     在 nnnn 秒之后指定默认选项。字符必须在用 /C 选<br>            项指定的一组选择中; 同时，必须用 /T 指定 nnnn。</p><p>  /M   text      指定提示之前要显示的消息。如果没有指定，工具只<br>            显示提示。</p><p>  /?          显示帮助消息。</p><p> 注意:<br>  ERRORLEVEL 环境变量被设置为从选择集选择的键索引。列出的第一个选<br>  择返回 1，第二个选择返回 2，等等。如果用户按的键不是有效的选择，<br>  该工具会发出警告响声。如果该工具检测到错误状态，它会返回 255 的<br>  ERRORLEVEL 值。如果用户按 Ctrl+Break 或 Ctrl+C 键，该工具会返回 0<br>  的 ERRORLEVEL 值。在一个批程序中使用 ERRORLEVEL 参数时，将参数降<br>  序排列。</p><hr><p>IF ERRORLEVEL 是用来测试它的上一个DOS命令的返回值的，注意只是上一个命令的返回值，而且返回值必须依照从大到小次序顺序判断。</p><p>运行一直报“此时不应有 1。”，想了半天发现了不一样的地方，  </p><p>if errorlevel 2 goto mem<br>if errotlevel 1 goto defrag</p><p>。。。。确实铁憨憨</p><hr><h3 id="文件夹管理"><a href="#文件夹管理" class="headerlink" title="文件夹管理"></a>文件夹管理</h3><p><a href="https://baike.baidu.com/item/cd/3516393">cd</a> 显示<a href="https://baike.baidu.com/item/%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95">当前目录</a>名或改变当前目录。</p><p><a href="https://baike.baidu.com/item/md/2258980">md</a> 创建目录。</p><p><a href="https://baike.baidu.com/item/rd/1112812">rd</a> 删除一个目录。</p><p>dir 显示目录中的文件和子目录列表。</p><p>tree 以图形显示驱动器或路径的文件夹结构。</p><p>path 为<a href="https://baike.baidu.com/item/%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6">可执行文件</a>显示或设置一个搜索路径。</p><p>copy 复制文件和目录树。</p><h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><p><a href="https://baike.baidu.com/item/type/6541693">type</a> 显示文本文件的内容。</p><p>copy 将一份或多份文件复制到另一个位置。</p><p>del 删除一个或数个文件。</p><p>move 移动文件并<a href="https://baike.baidu.com/item/%E9%87%8D%E5%91%BD%E5%90%8D">重命名</a>文件和目录。（Windows XP Home Edition中没有)</p><p>ren<a href="https://baike.baidu.com/item/%E9%87%8D%E5%91%BD%E5%90%8D">重命名</a>文件。</p><p>replace 替换文件。</p><p>attrib 显示或更改<a href="https://baike.baidu.com/item/%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7">文件属性</a>。</p><p>find 搜索字符串。</p><p><a href="https://baike.baidu.com/item/fc/10362340">fc</a> 比较两个文件或两个文件集并显示它们之间的不同</p><h3 id="网络命令"><a href="#网络命令" class="headerlink" title="网络命令"></a>网络命令</h3><p><a href="https://baike.baidu.com/item/ping/6235">ping</a> 进行网络连接测试、名称解析</p><p>ftp<a href="https://baike.baidu.com/item/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93">文件传输</a></p><p>net 网络命令集及用户管理</p><p>telnet<a href="https://baike.baidu.com/item/%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86">远程登陆</a></p><p><a href="https://baike.baidu.com/item/ipconfig/2496619">ipconfig</a>显示、修改<a href="https://baike.baidu.com/item/TCP%2FIP/214077">TCP/IP</a>设置</p><p>msg 给用户发送消息</p><p><a href="https://baike.baidu.com/item/arp/609343">arp</a> 显示、修改局域网的IP地址-<a href="https://baike.baidu.com/item/%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80">物理地址</a>映射列表</p><h3 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h3><p>at 安排在特定日期和时间运行命令和程序</p><p><a href="https://baike.baidu.com/item/shutdown/10469108">shutdown</a>立即或定时关机或重启</p><p>tskill 结束进程</p><p>taskkill结束进程（比tskill高级，但WinXPHome版中无该命令）</p><p>tasklist显示进程列表（Windows XP Home Edition中没有）</p><p>sc 系统服务设置与控制</p><p>reg 注册表控制台工具</p><p>powercfg控制系统上的电源设置</p><p>对于以上列出的所有命令，在cmd中输入命令+/?即可查看该命令的帮助信息。如find /? </p><hr><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">echo off</span><br><span class="line"></span><br><span class="line">:3</span><br><span class="line"></span><br><span class="line">ping www.baidddu.com -n 4         </span><br><span class="line"></span><br><span class="line">if errorlevel 1 goto 1                 </span><br><span class="line"></span><br><span class="line">if errorlevel 0 goto 0                  </span><br><span class="line"></span><br><span class="line">:0</span><br><span class="line">goto 3:</span><br><span class="line"></span><br><span class="line">:1</span><br><span class="line">E:</span><br><span class="line">cd Media</span><br><span class="line">13166.mp3</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;echo off 表示在此语句后所有运行的命令都不显示命令行本身&lt;br&gt;@与echo off相象，但它是加在每个命令行的最前面，表示运行时不显示这一行的命令行（只能影响当前行）。 &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&quot;https://baike.baidu.com/i</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python学习笔记</title>
+    <link href="http://example.com/2021/02/08/Python%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    <id>http://example.com/2021/02/08/Python%E8%87%AA%E5%8A%A8%E5%8C%96/</id>
+    <published>2021-02-08T13:27:40.052Z</published>
+    <updated>2021-02-08T13:28:19.974Z</updated>
+    
+    
+    
+    
+    
+    <category term="python" scheme="http://example.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++学习笔记</title>
+    <link href="http://example.com/2021/02/08/C++%20iostream%E6%9C%BA%E5%88%B6/"/>
+    <id>http://example.com/2021/02/08/C++%20iostream%E6%9C%BA%E5%88%B6/</id>
+    <published>2021-02-08T13:07:46.710Z</published>
+    <updated>2021-02-08T13:27:38.297Z</updated>
+    
+    
+    
+    
+    
+    <category term="C++" scheme="http://example.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++学习笔记</title>
     <link href="http://example.com/2021/02/06/C++%20Primer%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://example.com/2021/02/06/C++%20Primer%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2021-02-06T13:20:06.542Z</published>
-    <updated>2021-02-06T13:20:37.211Z</updated>
+    <updated>2021-02-08T12:57:48.500Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-、介绍"><a href="#1-、介绍" class="headerlink" title="1 、介绍"></a>1 、介绍</h1><h1 id="2、-心得"><a href="#2、-心得" class="headerlink" title="2、 心得"></a>2、 心得</h1><ul><li>学习语言的一个境界是把自己 想象成编译器。</li><li>类提供了对象的蓝图，所以基本上，对象是根据类来创建的。声明类的对象，就像声明基本类型的变量一样。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;1-、介绍&quot;&gt;&lt;a href=&quot;#1-、介绍&quot; class=&quot;headerlink&quot; title=&quot;1 、介绍&quot;&gt;&lt;/a&gt;1 、介绍&lt;/h1&gt;&lt;h1 id=&quot;2、-心得&quot;&gt;&lt;a href=&quot;#2、-心得&quot; class=&quot;headerlink&quot; title=&quot;2、 </summary>
+      
     
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://example.com/2021/02/06/%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
-    <id>http://example.com/2021/02/06/%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/</id>
-    <published>2021-02-06T13:20:06.542Z</published>
-    <updated>2021-02-06T13:21:06.995Z</updated>
-    
-    
-    
-    
+    <category term="C++" scheme="http://example.com/tags/C/"/>
     
   </entry>
   
   <entry>
-    <title></title>
+    <title>JavaScript学习笔记</title>
     <link href="http://example.com/2021/02/06/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://example.com/2021/02/06/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2021-02-06T13:20:06.542Z</published>
-    <updated>2021-02-07T12:00:01.065Z</updated>
+    <updated>2021-02-08T10:45:32.925Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>JavaScript 是 web 开发人员必须学习的 3 门语言中的一门：</li></ul><p>HTML 定义了网页的内容<br>CSS 描述了网页的布局<br>JavaScript 网页的行为</p>]]></content>
+    <content type="html"><![CDATA[<ul><li>JavaScript 是 web 开发人员必须学习的 3 门语言中的一门：</li><li>HTML 定义了网页的内容<br>CSS 描述了网页的布局<br>JavaScript 网页的行为</li></ul>]]></content>
     
     
       
       
     <summary type="html">&lt;ul&gt;
 &lt;li&gt;JavaScript 是 web 开发人员必须学习的 3 门语言中的一门：&lt;/li&gt;
+&lt;li&gt;HTML 定义了网页的内容&lt;br&gt;CSS 描述了网页的布局&lt;br&gt;JavaScript 网页的行为&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;HTML 定义了网页的内容&lt;br&gt;CSS 描述了网页的布局&lt;br&gt;JavaScript 网页的行为&lt;/p&gt;
 </summary>
       
     
     
     
     
+    <category term="JavaScript" scheme="http://example.com/tags/JavaScript/"/>
+    
   </entry>
   
   <entry>
-    <title></title>
+    <title>读书笔记相关</title>
+    <link href="http://example.com/2021/02/06/%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
+    <id>http://example.com/2021/02/06/%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/</id>
+    <published>2021-02-06T13:20:06.542Z</published>
+    <updated>2021-02-08T10:49:46.818Z</updated>
+    
+    
+    
+    
+    
+    <category term="读书" scheme="http://example.com/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS学习笔记</title>
     <link href="http://example.com/2021/02/06/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://example.com/2021/02/06/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2021-02-06T13:18:59.976Z</published>
-    <updated>2021-02-06T14:23:05.478Z</updated>
+    <updated>2021-02-08T10:49:41.633Z</updated>
     
     <content type="html"><![CDATA[<p>#1、定义</p><p>层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现<a href="https://baike.baidu.com/item/HTML">HTML</a>（<a href="https://baike.baidu.com/item/%E6%A0%87%E5%87%86%E9%80%9A%E7%94%A8%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/6805073">标准通用标记语言</a>的一个应用）或<a href="https://baike.baidu.com/item/XML">XML</a>（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化</p>]]></content>
     
@@ -85,16 +163,18 @@
     
     
     
+    <category term="CSS" scheme="http://example.com/tags/CSS/"/>
+    
   </entry>
   
   <entry>
-    <title></title>
+    <title>HTML学习笔记</title>
     <link href="http://example.com/2021/02/06/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://example.com/2021/02/06/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2021-02-06T13:17:37.333Z</published>
-    <updated>2021-02-07T13:34:51.724Z</updated>
+    <updated>2021-02-08T10:48:20.348Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h1><p>HTML称为超文本标记语言，是一种<a href="https://baike.baidu.com/item/%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/5964436">标记语言</a>。它包括一系列标签．通过这些标签可以将网络上的<a href="https://baike.baidu.com/item/%E6%96%87%E6%A1%A3/1009768">文档</a>格式统一，使分散的<a href="https://baike.baidu.com/item/Internet/272794">Internet</a>资源连接为一个逻辑整体。HTML文本是由HTML命令组成的描述性<a href="https://baike.baidu.com/item/%E6%96%87%E6%9C%AC/5443630">文本</a>，HTML命令可以说明<a href="https://baike.baidu.com/item/%E6%96%87%E5%AD%97/612910">文字</a>，<a href="https://baike.baidu.com/item/%E5%9B%BE%E5%BD%A2/773307">图形</a>、<a href="https://baike.baidu.com/item/%E5%8A%A8%E7%94%BB/206564">动画</a>、<a href="https://baike.baidu.com/item/%E5%A3%B0%E9%9F%B3/33686">声音</a>、<a href="https://baike.baidu.com/item/%E8%A1%A8%E6%A0%BC/3371820">表格</a>、<a href="https://baike.baidu.com/item/%E9%93%BE%E6%8E%A5/2665501">链接</a>等。</p><p>ps:推荐用这个学习，<a href="https://www.runoob.com/js/js-tutorial.html">奔跑吧菜鸟</a></p><h1 id="2、心得"><a href="#2、心得" class="headerlink" title="2、心得"></a>2、心得</h1><ul><li><p> 可标记语言是一门语法格式，相比面向对象啥的容易的多（说的就是你c++)，或者说像Markdown那样, 一种书写信息的专用格式。</p></li><li><p><code>&lt;p&gt;这是一个段落。&lt;/p&gt;</code></p></li><li><p>主要由<x>文本</x>这种格式组成，如果要设定字体的颜色、大小等则是这种格式，<code>&lt;h1 style = &quot;color: red&quot;&gt;</code>这是一个标题</h1><code>或者</code>h1 {color:red;}  <h1>这是一个标题</h1>(使用添加到 <head> 部分的样式信息对 HTML 进行格式化。)</p></li><li><p>px 是 pixel 的缩写,像素。</p></li><li><p>设定字体大小时可<code>font-size:20px</code>或<code>font-size:%20</code>(大小不对应)</p></li><li><p><code>text-decoration: none</code>文本无下划线</p><hr><p><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.css&quot;&gt;</code></p></li><li><p>rel属性通常用来描述链接之间的关系，也就是说目的地址(href) 跟源（站点）之间的关系。rel属性通常出现在a,link标签中。rel是relationship的英文缩写。</p></li><li><p>href指的是超文本引用，它的值可以是任何有效文档的相对或绝对URL，包括片段标识符和JavaScript代码段。</p></li><li><p>type:会在新窗口中加载被链接文档：</p><hr></li><li><p><code>&lt;div&gt;</code> 可定义文档中的分区或节（division/section）。 <code>&lt;div&gt; </code>标签可以把文档分割为独立的、不同的部分。它可以用               作严格的组织工具，并且不使用任何格式与其关联。如果用 id 或 class 来标记 <div>，那么该标签的作用会变得更加有效。</p></li><li><p>opacity,设置 div 元素的不透明级别：默认1.0(完全不透明)－0.0(完全透明)</p></li><li><p>padding 属性设置元素的内边距。<br>padding 属性定义元素边框与元素内容之间的空间。<br>该属性可采取 4 个值</p></li><li><p>通过设置元素的border-radius值，可以轻松给元素设置圆角边框，甚至实现绘制圆、半圆、四分之一的圆等各种圆角图形。<br>border-radius属性其实是border-top-left-radius、border-top-right-radius、border-bottom-right-radius、border-bottom-left-radius四个属性的简写模式，<br>不同于padding和margin的“上、右、下、左”的顺序，border-radius采用的是左上角、右上角、右下角、左下角的顺序</p></li><li><p>solid表示的是实线，dashed表示的是虚线</p></li><li><p>使用 <span> 元素对文本中的一部分进行着色：<p>我的母亲有 <span style="color:blue">蓝色</span> 的眼睛。</p></p></li><li><p><img> 标签的 alt 属性指定了替代文本，用于在图像无法显示或者用户禁用图像显示时，代替图像显示在浏览器中的内容。</p><p><img> 标签的 border 属性规定图像周围的边框的宽度，就是说可以增加或去掉图像的边框。</p><p><img> 标签的 src 属性是必需的。它的值是图像文件的 URL，也就是引用该图像的文件的的绝对路径或相对路径。</p><p><strong>提示：</strong>为了整理文档的存储，创作者通常会把图像文件存放在一个单独的文件夹中，而且通常会将这些目录命名为 “pics” 或者 “images” 之类的名称。在 W3School 在线教程中，我们的工程师把大部分常用的图像都存放到一个名为 “i” 的文件夹中，”i”是 “images” 的缩写，这样做的好处是可以最大程度地简化路径。</p><p>usemap 属性将图像定义为客户端图像映射。</p><p>图像映射指的是带有可点击区域的图像。</p></li><li><p>标签&gt;属性</p><hr></li><li><h1 id="html中src与href的区别"><a href="#html中src与href的区别" class="headerlink" title="html中src与href的区别"></a>html中src与href的区别</h1></li><li><p>src和href之间存在区别，能混淆使用。src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。</p></li><li><h2 id="src"><a href="#src" class="headerlink" title="src"></a>src</h2></li><li><p>src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如<strong>js脚本</strong>，<strong>img图片</strong>和<strong>frame</strong>等元素。</p></li><li><p>```</p><script src="../js/jquery.js"></script><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</span><br><span class="line"></span><br><span class="line">- ## href</span><br><span class="line"></span><br><span class="line">- href是Hypertext Reference（超文本引用）的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接</span><br><span class="line"></span><br><span class="line">- &#96;&#96;&#96;</span><br><span class="line">  &lt;link href&#x3D;&quot;common.css&quot; rel&#x3D;&quot;stylesheet&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure></li><li><p>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用@import方式。</p><p>看菜鸟教程例子里，image标签，href用图片地址，src用图片名字也是可以的</p><hr></li><li><p>html中herf=” #c4”，表bai示链接到命名为“C4”的du锚记位置，C4仅仅为zhi自定义的名字；锚点是网页制作中超shu级链接的一种，又叫命名锚记。</p><p>命名锚记像一个迅速定位器一样是一种页面内的超级链接，运用相当普遍。使用命名锚记可以在文档中设置标记，这些标记通常放在文档的特定主题处或顶部。然后可以创建到这些命名锚记的链接，这些链接可快速将访问者带到指定位置。创建到命名锚记的链接的过程分为两步。首先，创建命名锚记，然后创建到该命名锚记的链接。</p></li><li><p>每个表格从一个 table 标签开始。<br>每个表格行从 tr 标签开始。<br>每个表格的数据从 td 标签开始。</p><h4>一列:</h4><table border="10"><tr>  <td>100</td></tr></table></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h1><p>HTML称为超文本标记语言，是一种<a href="https://baike.baidu.com/item/%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/5964436">标记语言</a>。它包括一系列标签．通过这些标签可以将网络上的<a href="https://baike.baidu.com/item/%E6%96%87%E6%A1%A3/1009768">文档</a>格式统一，使分散的<a href="https://baike.baidu.com/item/Internet/272794">Internet</a>资源连接为一个逻辑整体。HTML文本是由HTML命令组成的描述性<a href="https://baike.baidu.com/item/%E6%96%87%E6%9C%AC/5443630">文本</a>，HTML命令可以说明<a href="https://baike.baidu.com/item/%E6%96%87%E5%AD%97/612910">文字</a>，<a href="https://baike.baidu.com/item/%E5%9B%BE%E5%BD%A2/773307">图形</a>、<a href="https://baike.baidu.com/item/%E5%8A%A8%E7%94%BB/206564">动画</a>、<a href="https://baike.baidu.com/item/%E5%A3%B0%E9%9F%B3/33686">声音</a>、<a href="https://baike.baidu.com/item/%E8%A1%A8%E6%A0%BC/3371820">表格</a>、<a href="https://baike.baidu.com/item/%E9%93%BE%E6%8E%A5/2665501">链接</a>等。</p><p>ps:推荐用这个学习，<a href="https://www.runoob.com/js/js-tutorial.html">奔跑吧菜鸟</a></p><h1 id="2、心得"><a href="#2、心得" class="headerlink" title="2、心得"></a>2、心得</h1><ul><li><p> 可标记语言是一门语法格式，相比面向对象啥的容易的多（说的就是你c++)，或者说像Markdown那样, 一种书写信息的专用格式。嘛，就是打标签嘛，文本两边打标签，改格式什么的就再加标签，标签套标签。</p></li><li><p><code>&lt;p&gt;这是一个段落。&lt;/p&gt;</code></p></li><li><p>主要由<x>文本</x>这种格式组成，如果要设定字体的颜色、大小等则是这种格式，<code>&lt;h1 style = &quot;color: red&quot;&gt;</code>这是一个标题</h1><code>或者</code>h1 {color:red;}  <h1>这是一个标题</h1>(使用添加到 <head> 部分的样式信息对 HTML 进行格式化。)</p></li><li><p>px 是 pixel 的缩写,像素。</p></li><li><p>设定字体大小时可<code>font-size:20px</code>或<code>font-size:%20</code>(大小不对应)</p></li><li><p><code>text-decoration: none</code>文本无下划线</p><hr><p><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.css&quot;&gt;</code></p></li><li><p>rel属性通常用来描述链接之间的关系，也就是说目的地址(href) 跟源（站点）之间的关系。rel属性通常出现在a,link标签中。rel是relationship的英文缩写。</p></li><li><p>href指的是超文本引用，它的值可以是任何有效文档的相对或绝对URL，包括片段标识符和JavaScript代码段。</p></li><li><p>type:会在新窗口中加载被链接文档：</p><hr></li><li><p><code>&lt;div&gt;</code> 可定义文档中的分区或节（division/section）。 <code>&lt;div&gt; </code>标签可以把文档分割为独立的、不同的部分。它可以用               作严格的组织工具，并且不使用任何格式与其关联。如果用 id 或 class 来标记 <div>，那么该标签的作用会变得更加有效。</p></li><li><p>opacity,设置 div 元素的不透明级别：默认1.0(完全不透明)－0.0(完全透明)</p></li><li><p>padding 属性设置元素的内边距。<br>padding 属性定义元素边框与元素内容之间的空间。<br>该属性可采取 4 个值</p></li><li><p>通过设置元素的border-radius值，可以轻松给元素设置圆角边框，甚至实现绘制圆、半圆、四分之一的圆等各种圆角图形。<br>border-radius属性其实是border-top-left-radius、border-top-right-radius、border-bottom-right-radius、border-bottom-left-radius四个属性的简写模式，<br>不同于padding和margin的“上、右、下、左”的顺序，border-radius采用的是左上角、右上角、右下角、左下角的顺序</p></li><li><p>solid表示的是实线，dashed表示的是虚线</p></li><li><p>使用 <span> 元素对文本中的一部分进行着色：<p>我的母亲有 <span style="color:blue">蓝色</span> 的眼睛。</p></p></li><li><p><img> 标签的 alt 属性指定了替代文本，用于在图像无法显示或者用户禁用图像显示时，代替图像显示在浏览器中的内容。</p><p><img> 标签的 border 属性规定图像周围的边框的宽度，就是说可以增加或去掉图像的边框。</p><p><img> 标签的 src 属性是必需的。它的值是图像文件的 URL，也就是引用该图像的文件的的绝对路径或相对路径。</p><p><strong>提示：</strong>为了整理文档的存储，创作者通常会把图像文件存放在一个单独的文件夹中，而且通常会将这些目录命名为 “pics” 或者 “images” 之类的名称。在 W3School 在线教程中，我们的工程师把大部分常用的图像都存放到一个名为 “i” 的文件夹中，”i”是 “images” 的缩写，这样做的好处是可以最大程度地简化路径。</p><p>usemap 属性将图像定义为客户端图像映射。</p><p>图像映射指的是带有可点击区域的图像。</p></li><li><p>标签&gt;属性</p><hr></li><li><h1 id="html中src与href的区别"><a href="#html中src与href的区别" class="headerlink" title="html中src与href的区别"></a>html中src与href的区别</h1></li><li><p>src和href之间存在区别，能混淆使用。src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。</p></li><li><h2 id="src"><a href="#src" class="headerlink" title="src"></a>src</h2></li><li><p>src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如<strong>js脚本</strong>，<strong>img图片</strong>和<strong>frame</strong>等元素。</p></li><li><p>```</p><script src="../js/jquery.js"></script><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</span><br><span class="line"></span><br><span class="line">- ## href</span><br><span class="line"></span><br><span class="line">- href是Hypertext Reference（超文本引用）的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接</span><br><span class="line"></span><br><span class="line">- &#96;&#96;&#96;</span><br><span class="line">  &lt;link href&#x3D;&quot;common.css&quot; rel&#x3D;&quot;stylesheet&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure></li><li><p>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用@import方式。</p><p>看菜鸟教程例子里，image标签，href用图片地址，src用图片名字也是可以的</p><hr></li><li><p>html中herf=” #c4”，表bai示链接到命名为“C4”的du锚记位置，C4仅仅为zhi自定义的名字；锚点是网页制作中超shu级链接的一种，又叫命名锚记。</p><p>命名锚记像一个迅速定位器一样是一种页面内的超级链接，运用相当普遍。使用命名锚记可以在文档中设置标记，这些标记通常放在文档的特定主题处或顶部。然后可以创建到这些命名锚记的链接，这些链接可快速将访问者带到指定位置。创建到命名锚记的链接的过程分为两步。首先，创建命名锚记，然后创建到该命名锚记的链接。</p></li><li><p>每个表格从一个 table 标签开始。<br>每个表格行从 tr 标签开始。<br>每个表格的数据从 td 标签开始。</p><h4>一列:</h4><table border="10"><tr>  <td>100</td></tr></table></li><li><p>fieldset 元素可将表单内的相关元素分组。<fieldset> 标签将表单内容的一部分打包，生成一组相关表单的字段。当一组表单元素放到 <fieldset> 标签内时，浏览器会以特殊方式来显示它们，它们可能有特殊的边界、3D 效果，或者甚至可创建一个子表单来处理这些元素。</p></li><li><!DOCTYPE html><p>是html5标准网页声明,全称为Document Type HyperText Mark-up Language，意思为文档种类为超文本标记性语言或超文本链接标示语言，现在是这个简洁形式，支持html5标准的主流浏览器都认识这个声明。表示网页采用html5，&lt;!DOCTYPE&gt; 声明位于文档中的最前面的位置，处于 <html> 标签之前。此标签可告知浏览器文档使用哪种 HTML 或 XHTML 规范。</p><pre><code>&lt;DOCTYPE&gt; 不是 HTML 标签。它为浏览器提供一项信息（声明），即 HTML 是用什么版本编写的。</code></pre></li><li><meta> 元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。<meta> 标签位于文档的头部，不包含任何内容。<meta> 标签的属性定义了与文档相关联的名称/值对。</li></ul>]]></content>
     
     
       
@@ -105,6 +185,8 @@
     
     
     
+    <category term="HTML" scheme="http://example.com/tags/HTML/"/>
+    
   </entry>
   
   <entry>
@@ -112,9 +194,9 @@
     <link href="http://example.com/2021/02/04/Hexo%E4%B8%8EGithub-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
     <id>http://example.com/2021/02/04/Hexo%E4%B8%8EGithub-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/</id>
     <published>2021-02-04T15:38:06.000Z</published>
-    <updated>2021-02-06T12:57:53.211Z</updated>
+    <updated>2021-02-11T03:01:15.565Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1、Live2d-配置"><a href="#1、Live2d-配置" class="headerlink" title="1、Live2d 配置"></a>1、Live2d 配置</h1><ul><li>安装Live2d 模块</li></ul><p><code>npm install --save hexo-helper-live2d</code></p><ul><li>打开根目录的配置文件<code>_config.yml</code>粘贴以下下内容（位置随意）</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw&#x2F;</span><br><span class="line">  pluginJsPath: lib&#x2F;</span><br><span class="line">  pluginModelPath: assets&#x2F;</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-shizuku &#x2F;&#x2F; 下载的动画模型名称（目前是默认）</span><br><span class="line">  display:</span><br><span class="line">    position: left &#x2F;&#x2F;模型显示位置</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true  &#x2F;&#x2F;移动设备是否显示</span><br></pre></td></tr></table></figure><ul><li>下载模型</li></ul><p><code>npm install live2d-widget-model-shizuku</code></p><ul><li><p>下载完之后，在Hexo根目录中新建文件夹live2d_models，然后在node_modules文件夹中找到刚刚下载的live2d模型，将其复制到live2d_models中，然后编辑配置文件中的<code>model.use</code>项，将其修改为live2d_models文件夹中的模型文件夹名称。</p></li><li><p>启动本地服务器<code>hexo s</code>查看效果</p><p>ps:<a href="https://github.com/xiazeyu/live2d-widget-models?spm=a2c6h.12873639.0.0.5ea427d9XxJAuR">模型下载地址看这里</a></p><hr></li></ul><p>​        ps:爷歇逼了，上面的内容是根据几篇博客和B站视频整理的，因为很多都有坑，按上面步骤来是绝对没问题的，但是今天在蛇皮butterfly里好玩的设置，运行网页时一直报错，折磨，搞来搞去最后只好换回默认的butterfly<em>（血的教训，备份很重要也）</em>，搞回来以后是不报错了，但是我的黑猫没了，于是再次折腾，回不来了。。。</p><p>就这样吧，正经人谁搞这些花里胡哨的，安心写博客,<del>正经人谁写博客啊</del>.</p><p>2021，2，6 等哪天有空继续折腾吧，</p><p>原因，打不开网页的原因，鼠标显示文字的效果打开就打不开，换成其他特效就可以打开了’。。。。</p><p><img src="https://raw.githubusercontent.com/suu1/BlogPhotos/main/avLE8k95xDKgUGX.jpg"></p><p>#2、背景图、头像、特效</p><p><a href="www.baidu.com">设置方法在这里</a></p><p>1、git博客加载不出背景图，明明方法一样可以加载出横幅图片就是背景加载不出，本地博客可正常加载</p><p>这里建议改一下hosts，访问github会快很多，之前有次加载不出是因为github加载外部链接很慢（所以图床在这里不得行），图片直接上传到github，然后用它的下载地址就行，。。。。。但是背景还是死活在git加载不出，，，爷又歇逼了</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="1、Live2d-配置"><a href="#1、Live2d-配置" class="headerlink" title="1、Live2d 配置"></a>1、Live2d 配置</h1><ul><li>安装Live2d 模块</li></ul><p><code>npm install --save hexo-helper-live2d</code></p><ul><li>打开根目录的配置文件<code>_config.yml</code>粘贴以下下内容（位置随意）</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw&#x2F;</span><br><span class="line">  pluginJsPath: lib&#x2F;</span><br><span class="line">  pluginModelPath: assets&#x2F;</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-shizuku &#x2F;&#x2F; 下载的动画模型名称（目前是默认）</span><br><span class="line">  display:</span><br><span class="line">    position: left &#x2F;&#x2F;模型显示位置</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true  &#x2F;&#x2F;移动设备是否显示</span><br></pre></td></tr></table></figure><ul><li>下载模型</li></ul><p><code>npm install live2d-widget-model-shizuku</code></p><ul><li><p>下载完之后，在Hexo根目录中新建文件夹live2d_models，然后在node_modules文件夹中找到刚刚下载的live2d模型，将其复制到live2d_models中，然后编辑配置文件中的<code>model.use</code>项，将其修改为live2d_models文件夹中的模型文件夹名称。</p></li><li><p>启动本地服务器<code>hexo s</code>查看效果</p><p>ps:<a href="https://github.com/xiazeyu/live2d-widget-models?spm=a2c6h.12873639.0.0.5ea427d9XxJAuR">模型下载地址看这里</a></p><hr></li></ul><p>​        ps:爷歇逼了，上面的内容是根据几篇博客和B站视频整理的，因为很多都有坑，按上面步骤来是绝对没问题的，但是今天在蛇皮butterfly里好玩的设置，运行网页时一直报错，折磨，搞来搞去最后只好换回默认的butterfly<em>（血的教训，备份很重要也）</em>，搞回来以后是不报错了，但是我的黑猫没了，于是再次折腾，回不来了。。。</p><p>就这样吧，正经人谁搞这些花里胡哨的，安心写博客,<del>正经人谁写博客啊</del>.</p><p>2021，2，6 等哪天有空继续折腾吧，</p><p>原因，打不开网页的原因，鼠标显示文字的效果打开就打不开，换成其他特效就可以打开了’。。。。</p><p><img src="https://raw.githubusercontent.com/suu1/BlogPhotos/main/avLE8k95xDKgUGX.jpg"></p><p>#2、背景图、头像、特效</p><p><a href="www.baidu.com">设置方法在这里</a></p><p>1、git博客加载不出背景图，明明方法一样可以加载出横幅图片就是背景加载不出，本地博客可正常加载</p><p>这里建议改一下hosts，访问github会快很多，之前有次加载不出是因为github加载外部链接很慢（所以图床在这里不得行），图片直接上传到github，然后用它的下载地址就行，。。。。。但是背景还是死活在git加载不出，，，爷又歇逼了</p><h1 id="3、-常用命令"><a href="#3、-常用命令" class="headerlink" title="3、 常用命令"></a>3、 常用命令</h1><p>初始化博客<br>&gt; hexo init 文件夹名称<br>新建文章<br>&gt; hexo new 文章名称<br>(或者)<br>&gt; hexo n 文章名称<br>在线预览<br>&gt; hexo server<br>(或者)<br>&gt; hexo s<br>一键部署<br>&gt; hexo deploy<br>(或者)<br>&gt; hexo d</p>]]></content>
     
     
       
@@ -128,6 +210,8 @@
     
     
     
+    <category term="博客" scheme="http://example.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
   </entry>
   
   <entry>
@@ -135,7 +219,7 @@
     <link href="http://example.com/2021/02/04/Markdown%E7%AC%94%E8%AE%B0/"/>
     <id>http://example.com/2021/02/04/Markdown%E7%AC%94%E8%AE%B0/</id>
     <published>2021-02-04T15:06:58.000Z</published>
-    <updated>2021-02-06T13:49:58.871Z</updated>
+    <updated>2021-02-08T10:45:45.193Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Markdow-介绍"><a href="#Markdow-介绍" class="headerlink" title="Markdow 介绍"></a>Markdow 介绍</h1><ul><li><p>  百度定义：Markdown是一种<a href="https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/52671915">轻量级标记语言</a>，创始人为约翰·格鲁伯（英语：John Gruber）。 它允许人们使用易读易写的<a href="https://baike.baidu.com/item/%E7%BA%AF%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/9862288">纯文本格式</a>编写文档，然后转换成有效的XHTML（或者HTML）文档。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。</p></li><li><p>  由于Markdown的轻量化、易读易写特性，并且对于图片，图表、数学式都有支持，目前许多网站都广泛使用Markdown来撰写帮助文档或是用于论坛上发表消息。 如<a href="https://baike.baidu.com/item/GitHub/10145341">GitHub</a>、<a href="https://baike.baidu.com/item/Reddit/1272010">Reddit</a>、<a href="https://baike.baidu.com/item/Diaspora/10726893">Diaspora</a>、[Stack Exchange](<a href="https://baike.baidu.com/item/Stack">https://baike.baidu.com/item/Stack</a> Exchange/13777796)、<a href="https://baike.baidu.com/item/OpenStreetMap/3171606">OpenStreetMap</a> 、<a href="https://baike.baidu.com/item/SourceForge/6562141">SourceForge</a>、<a href="https://baike.baidu.com/item/%E7%AE%80%E4%B9%A6/5782216">简书</a>等，甚至还能被使用来撰写<a href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E4%B9%A6/346054">电子书</a>。</p></li></ul><p>总结：简单易学的超轻量化排版语法</p><h1 id="相关工具"><a href="#相关工具" class="headerlink" title="相关工具"></a>相关工具</h1><p>目前尝试过的如：</p><ul><li><p>简书的预览模式，双页，左边码字，右边示时预览效果</p></li><li><p>ypora：一款轻便简洁的Markdown编辑器,支持即时渲染技术。用户页面个人感觉清新简洁，所谓即时渲染既所见即所得，在输入语法换行后，上一行会显示出实际的效果，可按住“Ctral + /“切换模式（这里小白摸索了好久，一度以为软件有问题）</p></li></ul><h1 id="心得-坑"><a href="#心得-坑" class="headerlink" title="心得(坑)"></a>心得(坑)</h1><p>注意输入法、输入法、输入法</p>]]></content>
     
@@ -149,16 +233,18 @@
     
     
     
+    <category term="Markdow" scheme="http://example.com/tags/Markdow/"/>
+    
   </entry>
   
   <entry>
-    <title></title>
+    <title>炸鸡</title>
     <link href="http://example.com/2021/02/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
     <id>http://example.com/2021/02/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</id>
     <published>2021-02-03T13:12:28.436Z</published>
-    <updated>2021-02-06T13:15:26.757Z</updated>
+    <updated>2021-02-09T11:28:53.974Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><blockquote><p><em>沉舟侧畔千帆过，住在山里针不戳</em></p></blockquote><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p>2.烤肉</p><p><a href="https://www.baidu.com/?tn=18029102_2_dg">百度的链接</a></p><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p><img src="https://i.loli.net/2021/02/04/kWMtoivUhD89OYL.jpg" alt="cat.jpg"></p><p>##二级标题</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><blockquote><p><em>沉舟侧畔千帆过，住在山里针不戳</em></p></blockquote><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p>2.烤肉</p><p>2021，2，9</p><p>今天学了批处理</p><p><a href="https://www.baidu.com/?tn=18029102_2_dg">百度的链接</a></p><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p><img src="https://i.loli.net/2021/02/04/kWMtoivUhD89OYL.jpg" alt="cat.jpg"></p><p>##二级标题</p>]]></content>
     
     
       
@@ -171,6 +257,8 @@
     
     
     
+    
+    <category term="HTML" scheme="http://example.com/tags/HTML/"/>
     
   </entry>
   
