@@ -2,7 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2021/02/04/Hexo%E4%B8%8EGithub-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/</loc>
+    <loc>http://example.com/2021/02/06/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2021-02-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/02/06/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2021-02-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/02/06/CSS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2021-02-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/02/04/Markdown%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2021-02-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/02/06/%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2021-02-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/02/06/C++%20Primer%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2021-02-06</lastmod>
     
@@ -11,21 +46,21 @@
   <url>
     <loc>http://example.com/2021/02/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</loc>
     
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-02-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2021/02/04/Markdown%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://example.com/2021/02/04/Hexo%E4%B8%8EGithub-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/</loc>
     
-    <lastmod>2021-02-04</lastmod>
+    <lastmod>2021-02-06</lastmod>
     
   </url>
   
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2021-02-06</lastmod>
+    <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
